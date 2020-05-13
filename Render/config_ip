@@ -1,0 +1,245 @@
+CPE-ADMspSM1-02# sho run
+
+
+hostname CPE-ADMspSM1-02
+
+no password strength-check
+
+banner motd ^C
+|    ---------------------------------------------------------------
+|    |                         ATTENTION !                         |
+|    |                                                             |
+|    |  ACCES RESERVE AU PERSONNEL AUTORISE DE EURO INFORMATION !  |
+|    |  TOUTE INTRUSION SUR UN SYSTEME INFORMATIQUE EST INTERDITE  |
+|    |        PAR LES ARTICLES 323-1 a 323-7 DU CODE PENAL.        |
+|    |   PERSONNAL WITH UNAUTHORIZED ACCESS WILL BE PROSECUTED !   |
+|    ---------------------------------------------------------------
+^
+
+no ip domain-lookup
+
+fabric forwarding anycast-gateway-mac fab4.1c0a.fde8
+
+interface mgmt0
+  vrf member management
+  ip address 192.168.10.2/24
+  
+vrf context management
+  ip route 0.0.0.0/0 192.168.10.254 
+interface Ethernet1/1
+	description CPE-ADMIfMIX-SM1-A1 [Eth1/49]
+	no shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.64/31 
+interface Ethernet1/2
+	description CPE-ADMIfMIX-SM1-A2 [Eth1/49]
+	no shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.66/31 
+interface Ethernet1/3
+	description CPE-ADMIfMIX-SM2-A1 [Eth1/49]
+	no shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.68/31 
+interface Ethernet1/4
+	description CPE-ADMIfMIX-SM2-A2 [Eth1/49]
+	no shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.70/31 
+interface Ethernet1/5
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.72/31 
+interface Ethernet1/6
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.74/31 
+interface Ethernet1/7
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.76/31 
+interface Ethernet1/8
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.78/31 
+interface Ethernet1/9
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.80/31 
+interface Ethernet1/10
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.82/31 
+interface Ethernet1/11
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.84/31 
+interface Ethernet1/12
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.86/31 
+interface Ethernet1/13
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.88/31 
+interface Ethernet1/14
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.90/31 
+interface Ethernet1/15
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.92/31 
+interface Ethernet1/16
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.94/31 
+interface Ethernet1/17
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.96/31 
+interface Ethernet1/18
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.98/31 
+interface Ethernet1/19
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.100/31 
+interface Ethernet1/20
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.102/31 
+interface Ethernet1/21
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.104/31 
+interface Ethernet1/22
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.106/31 
+interface Ethernet1/23
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.108/31 
+interface Ethernet1/24
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.110/31 
+interface Ethernet1/25
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.112/31 
+interface Ethernet1/26
+	description NotUsed (leaf ready)
+	shutdown
+	mtu 9216
+	no ip redirects
+	ip address 10.1.200.114/31 
+interface Ethernet1/27
+	description CPE-ADMspSM1-01 [Eth1/27]
+	no shutdown
+	mtu 9216
+	channel-group 1 mode active
+	 
+interface Ethernet1/28
+	description CPE-ADMspSM1-01 [Eth1/28]
+	no shutdown
+	mtu 9216
+	channel-group 1 mode active
+	 
+interface Ethernet1/29
+	description NotUsed (leaf ready)
+	shutdown
+	
+	
+	 
+interface Ethernet1/30
+	description NotUsed (leaf ready)
+	shutdown
+	
+	
+	 
+interface Ethernet1/31
+	description NotUsed (leaf ready)
+	shutdown
+	
+	
+	 
+interface Ethernet1/32
+	description NotUsed (leaf ready)
+	shutdown
+	
+	
+	
+
+
+
+interface port-channel1
+  description CPE-ADMspSM1-01[Po1]
+  logging event port link-status
+  mtu 9216
+  ip address 10.1.200.63/31
+
+interface loopback0
+  description OSPF/BGP interface
+  ip address 10.1.200.125/32
+
+interface loopback1
+  description PIM interface
+  ip address 10.1.200.255
+
+
+
+
+line console
+  exec-timeout 15
+line vty
+  session-limit 16
+  exec-timeout 15

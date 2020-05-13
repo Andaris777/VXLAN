@@ -1,0 +1,36 @@
+
+banner motd ^C
+|    ---------------------------------------------------------------
+|    |                         ATTENTION !                         |
+|    |                                                             |
+|    |  ACCES RESERVE AU PERSONNEL AUTORISE DE EURO INFORMATION !  |
+|    |  TOUTE INTRUSION SUR UN SYSTEME INFORMATIQUE EST INTERDITE  |
+|    |        PAR LES ARTICLES 323-1 a 323-7 DU CODE PENAL.        |
+|    |   PERSONNAL WITH UNAUTHORIZED ACCESS WILL BE PROSECUTED !   |
+|    ---------------------------------------------------------------
+^
+
+
+feature bgp
+
+router bgp 65000            
+  router-id 10.1.200.125/32		
+  cluster-id 10.1.200.255	
+  log-neighbor-changes
+  address-family ipv4 unicast
+  address-family l2vpn evpn
+    retain route-target all
+  neighbor 10.1.200.0/23 remote-as 65000   
+    remote-as 65000
+    description ibgp peering with all leaves and spines
+    password 0 password_bgp_cisco
+    update-source loopback0
+    address-family ipv4 unicast
+      send-community
+      send-community extended
+      route-reflector-client
+    address-family l2vpn evpn
+      send-community
+      send-community extended
+      route-reflector-client
+
